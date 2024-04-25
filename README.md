@@ -60,11 +60,10 @@ Cart 기능을 구현하면서 기록한 내용을 남깁니다.
 
 ## Vercel
 
+- vercel.json은 서버에서 CSR(Client Side Rendering) 시에 라우팅 주소를 알 수 없기 때문에 rewrite로 주소를 루트로 보내어 Client의 Routing 시스템을 사용하도록 유도합니다.
+
 ### 배포 단계
 
--
-
-### 배포 주소
-
-- vercel.json은 서버에서 CSR(Client Side Rendering) 시에 라우팅 주소를 알 수 없기 때문에 rewrite로 주소를 루트로 보내어 Client의 Routing 시스템을 사용하도록 유도합니다.
-- https://react-shop-oinochoe.vercel.app/
+- Vercel 에서 배포 전, 로컬에서 먼저 npm run build 로 빌드합니다.
+- error 수정 후에 Vercel로 배포를 진행했습니다.
+- 예상치 못한 error가 발생할 수 있기 때문에 로컬에서 먼저 오류를 전부 해결하고 Vercel에 올리는 것이 시간을 단축할 수 있었습니다.
