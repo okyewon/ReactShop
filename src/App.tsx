@@ -15,8 +15,11 @@ const App = (): JSX.Element => {
 
   useLayoutEffect(() => {
     const theme = localStorage.getItem(CONSTANTS.LOCAL_STORAGE_KEY.THEME);
-    const root = document.documentElement;
-    root.dataset.theme = theme;
+    const root = document.documentElement as HTMLElement;
+
+    if (theme !== null) {
+      root.dataset.theme = theme;
+    }
 
     if (theme === CONSTANTS.THEME.DARK) {
       root.classList.add(theme);
