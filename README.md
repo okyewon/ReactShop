@@ -1,5 +1,8 @@
 # React Shop
 
+- 도메인 URL
+  https://react-shop-ki4o.vercel.app/
+
 ## 디렉토리 구조
 
 ```
