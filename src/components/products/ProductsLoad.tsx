@@ -21,7 +21,7 @@ const ProductsLoad = ({ title, limit = 20 }): JSX.Element => {
           productsCards.slice(0, limit).map((item) => {
             return (
               <Link
-                to={`/product/:${item.id}`}
+                to={`/product/${item.id}`}
                 key={item.id}
                 className="card card-bordered border-gray-200 dark:border-gray-800 card-compact lg:card-normal"
               >

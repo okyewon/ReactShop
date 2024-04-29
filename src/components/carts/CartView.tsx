@@ -56,7 +56,7 @@ const CartView = (): JSX.Element => {
                   </Link>
                   <div className="card-body px-1 lg:px-12">
                     <h2 className="card-title">
-                      <Link className="link link-hover" to={`/product/:${product?.id}`}>
+                      <Link className="link link-hover" to={`/product/${product?.id}`}>
                         {product?.title}
                       </Link>
                     </h2>

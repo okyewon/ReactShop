@@ -13,7 +13,11 @@ const Product = (): JSX.Element => {
   const [cart, setCart] = useRecoilState(cartState);
 
   const products: IProduct[] = "hasValue" === productsLoadable.state ? productsLoadable.contents : [];
-  const product = products.filter((item) => productParam.id == ":" + item.id.toString())[0];
+  const product = products.filter((item) => productParam.id == item.id.toString())[0];
+
+  if (!product) {
+    return <></>;
+  }
 
   const category = Category[product.category];
 

@@ -26,7 +26,7 @@ export default function InputSearch() {
   }, [searchValue]);
 
   const handleOnClick = (id) => {
-    navigate(`/product/:${id}`);
+    navigate(`/product/${id}`);
     setSearchValue("");
   };
 
