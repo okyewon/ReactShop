@@ -6,6 +6,7 @@ import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { ICartState, addToCart, cartState, removeFromCart } from "../../store/cart";
 import { IProduct, productsList } from "../../store/products";
 import { useEffect, useState } from "react";
+import ProductsViewLoad from "../products/ProductsViewLoad";
 
 const CartView = (): JSX.Element => {
   const productsLoadable = useRecoilValueLoadable<IProduct[]>(productsList);
@@ -37,6 +38,10 @@ const CartView = (): JSX.Element => {
     const addCount: Object = addToCart(cartItems, id);
     setCartItems(addCount);
   };
+
+  if ("loading" === productsLoadable.state) {
+    return <ProductsViewLoad />;
+  }
 
   return (
     <>

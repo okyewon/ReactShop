@@ -2,6 +2,7 @@ import { useRecoilValueLoadable } from "recoil";
 import { IProduct, productsList } from "../../store/products";
 import { Link } from "react-router-dom";
 import { Category } from "../../constants/category";
+import ProductsViewLoad from "./ProductsViewLoad";
 
 /**
  * API 통신을 할 때 로딩중인지를 탐색하고 로딩 중이라면 Skeleton UI를 노출 시켜 보세요.
@@ -12,6 +13,8 @@ const ProductsLoad = ({ title, limit = 20 }): JSX.Element => {
   const productsCards = products.filter((item) => {
     return Category[item.category] === title;
   });
+
+  if ("loading" === productsLoadable.state) return <ProductsViewLoad />;
 
   return (
     <>

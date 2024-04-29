@@ -6,6 +6,7 @@ import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { Link } from "react-router-dom";
 import { addToCart, cartState } from "../../store/cart";
 import StarRating from "./StarRating";
+import ProductsViewLoad from "./ProductsViewLoad";
 
 const Product = (): JSX.Element => {
   const productsLoadable = useRecoilValueLoadable<IProduct[]>(productsList);
@@ -15,8 +16,8 @@ const Product = (): JSX.Element => {
   const products: IProduct[] = "hasValue" === productsLoadable.state ? productsLoadable.contents : [];
   const product = products.filter((item) => productParam.id == item.id.toString())[0];
 
-  if (!product) {
-    return <></>;
+  if ("loading" === productsLoadable.state) {
+    return <ProductsViewLoad />;
   }
 
   const category = Category[product.category];
